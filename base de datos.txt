@@ -1,0 +1,17 @@
+CREATE TABLE dlk_operacional_productos.opr_cat_productos
+(
+    md_uuid character varying NOT NULL,
+    md_fch date,
+    id_producto serial NOT NULL,
+    cod_producto character varying NOT NULL,
+    nombre_producto character varying,
+    tipo_producto_origen character varying,
+    tipo_producto_clase character varying,
+    des_producto character varying,
+    fch_alta_producto timestamp without time zone,
+    fch_baja_producto timestamp without time zone,
+    PRIMARY KEY (id_producto)
+);
+
+ALTER TABLE IF EXISTS dlk_operacional_productos.opr_cat_productos
+    OWNER to postgres;

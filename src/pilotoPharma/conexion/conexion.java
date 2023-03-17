@@ -6,22 +6,22 @@ import java.sql.SQLException;
 
 public class conexion {
 
-	public Connection ConectarBD() throws ClassNotFoundException, SQLException{
-		
-		String url = "jdbc:postgresql://127.0.0.1:5432/pilotopharma";
-		String usuario = "postgres";
-		String clave = "1234";
-		Class.forName("org.postgresql.Driver");
-		Connection con = DriverManager.getConnection(url, usuario, clave);
-		
-	
-		if(con != null)
-			System.out.println("Conectado a la base de datos");
-		else
-			System.out.println("No se ha conectado a la base de datos");
-		
-		
+	private final String url = "jdbc:postgresql://127.0.0.1:5432/pilotoPharma";
+	private final String usuario = "postgres";
+	private final String clave = "1234";
+
+	public Connection ConectarBD() {
+
+		Connection con = null;
+
+		try {
+			con = DriverManager.getConnection(url, usuario, clave);
+			System.out.println("Conectado a Base de datos");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
 		return con;
-		
+
 	}
 }
